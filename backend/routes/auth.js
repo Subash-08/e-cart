@@ -36,13 +36,13 @@ router.route('/password/forgot').post(forgotPassword);
 router.route('/password/reset/:token').post(resetPassword);
 router.route('/password/change').put(isAuthenticatedUser, changePassword);
 router.route('/myprofile').get(isAuthenticatedUser, getUserProfile);
-// router.route('/update').put(isAuthenticatedUser,upload.single('avatar'), updateProfile);
+router.route('/update').put(isAuthenticatedUser,upload.single('avatar'), updateProfile);
 
-// //Admin routes
-// router.route('/admin/users').get(isAuthenticatedUser,authorizeRoles('admin'), getAllUsers);
-// router.route('/admin/user/:id').get(isAuthenticatedUser,authorizeRoles('admin'), getUser)
-//                                 .put(isAuthenticatedUser,authorizeRoles('admin'), updateUser)
-//                                 .delete(isAuthenticatedUser,authorizeRoles('admin'), deleteUser);
+//Admin routes
+router.route('/admin/users').get(isAuthenticatedUser,authorizeRoles('admin'), getAllUsers);
+router.route('/admin/user/:id').get(isAuthenticatedUser,authorizeRoles('admin'), getUser)
+                                .put(isAuthenticatedUser,authorizeRoles('admin'), updateUser)
+                                .delete(isAuthenticatedUser,authorizeRoles('admin'), deleteUser);
 
 
 module.exports = router;
